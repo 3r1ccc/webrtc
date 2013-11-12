@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="expires" content="0">
+    <script src="WebRTC%20Test%20Landing%20Page_files/detect.js"></script>
+    <script src="WebRTC%20Test%20Landing%20Page_files/jquery.js"></script>
+    <script src="WebRTC%20Test%20Landing%20Page_files/bootstrap.js"></script>
+    <link rel="stylesheet" href="WebRTC%20Test%20Landing%20Page_files/bootstrap.css">
+    <title>WebRTC Test Landing Page</title>
+  </head>
+  <body>
+  <div class="row">
+    <div class="hero-unit offset2">
+        <h1>WebRTC Test Landing Page</h1>
+        <p>Following are a few pages to test various aspects of Mozilla's implementation of WebRTC.</p>
+    </div>
+  </div>
+    
+  <div class="row">
+  <div id="gum" class="span12 offset2 alert alert-error fade in" style="display: none;">
+    <button type="button" class="close" data-dismiss="alert">×</button>
+    <h4>mozGetUserMedia is missing!</h4>
+    Do you have the latest <a href="http://nightly.mozilla.org/">Nightly</a> and set <i>media.navigator.enabled</i> to true?
+  </div>
+  </div>
+  
+  <div class="row">
+  <div id="pc" class="span12 offset2 alert alert-error" style="display: none;">
+    <button type="button" class="close" data-dismiss="alert">×</button>
+    <h4>mozRTCPeerConnection is missing!</h4>
+    Do you have the latest <a href="http://nightly.mozilla.org/">Nightly</a> and set <i>media.peerconnection.enabled</i> to true?
+  </div>
+  </div>
+
+  <div class="row">
+  <div id="pc" class="span12 offset2 alert" style="display: none;">
+    <button type="button" class="close" data-dismiss="alert">×</button>
+    <h4>Your Firefox is old.</h4>
+    You have an older version of Firefox that supports WebRTC but may 
+have an incompatible API. For best results, please download the latest <a href="http://nightly.mozilla.org/">Nightly</a>!
+  </div>
+  
+  <hr>
+  <div class="row offset2">
+      <div class="well">
+        <h3>getUserMedia example</h3>
+        <p></p>
+        <p><button style="height: 50px; width: 150px" onclick="javascript:location.href='http://mozilla.github.io/webrtc-landing/gum_test.html'">Try Demo</button></p>
+      </div>
+  </div>
+  <hr>
+  <div class="row offset2">
+      <div class="well">
+        <h3>Single host 'chat'</h3>
+        <p>Single host 'chat' via mozRTCPeerConnection.</p>
+        <p><button style="height: 50px; width: 150px" onclick="javascript:location.href='http://mozilla.github.io/webrtc-landing/pc_test.html'">Try Demo</button></p>
+      </div>
+    
+  </div>
+  <hr>
+  <div class="row offset2">
+      <div class="well">
+        <h3>Single host DataChannels</h3>
+        <p><button style="height: 50px; width: 150px" onclick="javascript:location.href='http://mozilla.github.io/webrtc-landing/data_test.html'">Try Demo</button></p>
+      </div>
+
+  </div>
+  <hr>
+  <div class="row offset2">
+      <div class="well">
+        <h3>Multi-person video chat</h3>
+        <p>Multi-person video chat via mozRTCPeerConnection for Nightly. Code on <a href="https://github.com/jesup/nightly-gupshup.git">github</a>.</p>
+        <p><button style="height: 50px; width: 150px" onclick="javascript:location.href='http://nightly-gupshup.herokuapp.com/'">Try Demo</button></p>
+      </div>
+  </div>
+  
+  <hr>
+  <br>
+  
+  <div class="row offset6">
+    <h2>Tests for older FF versions</h2>
+  </div>
+
+  <hr>
+  <div class="row offset2">
+    <div class="well">
+      <h3>Video chat via mozRTCPeerConnection</h3>
+      <p>For Aurora/Firefox 20 only! Code on <a href="https://github.com/anantn/gupshup.git">github</a></p>
+      <p><button style="height: 50px; width: 150px" onclick="javascript:location.href='http://gupshup.herokuapp.com/'">Try Demo</button></p>
+    </div>
+
+  </div>
+  <hr>
+  <div class="row offset2">    
+    <div class="well">
+      <h3>Old single-host DataChannels</h3>
+      <p>FF21 and old FF22 Nightlies! The DataChannel wireline protocol and JS API changed at the FF22 uplift to Aurora (2013/4/2); <font style="color:red">and also a backwards-incompatible wireline bugfix on 2013/4/9</font> see <a href="http://mozilla.github.io/webrtc-landing/DataChannel_changes.html">DataChannel Changes</a>.</p>
+      <p><button style="height: 50px; width: 150px" onclick="javascript:location.href='http://mozilla.github.io/webrtc-landing/data_test_old.html'">Try Demo</button></p>
+    </div>
+  </div>
+
+  <script>
+    if (!navigator.mozGetUserMedia) {
+      document.getElementById("gum").style.display = "block";
+    }
+    if (!window.mozRTCPeerConnection) {
+      document.getElementById("pc").style.display = "block";
+    }
+    if (BrowserDetect.browser != "Firefox" ||
+        parseInt(BrowserDetect.version, 10) < 19) {
+      document.getElementById("version").style.display = "block";
+    }
+  </script>
+
+
+</div></body></html>

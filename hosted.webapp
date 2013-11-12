@@ -1,0 +1,48 @@
+{
+  "name": "WebAudio",
+  "description": "test app for webrtc",
+  "type": "web",
+  "launch_path": "/webrtc/index.html",
+  "developer": {
+    "name": "MozQATW Team",
+    "url": "https://github.com/echangmoz/webrtc/"
+  },
+  "messages": [
+     { "alarm": "/index.html" }
+  ],
+  "permissions": {
+      "audio-channel-content" : {"description":  "Use the audio channel for a music player"}
+  },
+  "locales": {
+    "ar": {
+      "name": "WebRTC",
+      "description": "WebRTC"
+    },
+    "en-US": {
+      "name": "WebRTC",
+      "description": "WebRTC"
+    },
+    "fr": {
+      "name": "WebRTC",
+      "description": "WebRTC"
+    },
+    "zh-TW": {
+      "name": "WebRTC",
+      "description": "WebRTC"
+    }
+  },
+  "default_locale": "en-US",
+  "icons": {
+    "79": "/style/icons/webrtc.png",
+    "128": "/style/icons/128x128.png"
+  },
+  "activities": {
+    "view": {
+      "filters": {
+        "type": "url",
+        "url": { "required":true, "pattern":"mailto:.{1,16384}" }
+      }
+    }
+  },
+  "orientation": "portrait-primary"
+}
